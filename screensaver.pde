@@ -1,5 +1,9 @@
 Matrix [] matrix = new Matrix[100];
-String string1= "Wake up , Natalie ... The Matrix has you ... Follow the white rabbit . Knock, knock ,Natalie. ";
+
+MatrixStreams matrixstream = new MatrixStreams();
+
+MatrixRain [] matrixrain = new MatrixRain[100];
+String string1= "Wake up , Peralta ... The Matrix has you ... Follow the white rabbit . Knock, knock ,Peralta. ";
 
 int string1Len = string1.length();
 
@@ -20,6 +24,9 @@ void setup() {
   for ( int i = 0; i <matrix.length; i++) {
     matrix[i] = new Matrix();
   } 
+  for ( int i = 0; i <matrixrain.length; i++) {
+    matrixrain[i] = new MatrixRain();
+  } 
 
   for ( int i = 0; i <= string1Len-1; i ++) {
     letter1[i] = string1.charAt(i);
@@ -27,25 +34,33 @@ void setup() {
 }
 
 void draw() {
-  if (s<93) {
-    typing();
-  }
-  if (s >=93) {
-
-    for ( int i = 0; i< matrix.length; i ++) {
-
-
-      matrix[i].fall();
-      matrix[i].show();
-    }
-    /*for ( int i = 0 ; i < matrix[i].down.length; i++){
-      fill(0);
-      matrix[i].fall();
-      matrix[i].show();
-      fill(102,168,85);
-      matrix[i].fall();
-      matrix[i].show();
-    }*/
+  /*if (s<93) {
+   typing();
+   }
+   if (s >=93 ) {
+   s++;
+   for ( int i = 0; i< matrix.length; i ++) {
+   
+   matrix[i].fall();
+   
+   matrix[i].show();
+   }
+   }
+   if (s>300) {
+   
+   background(0);
+   
+   for ( int i = 0; i < matrixrain.length; i++) {
+   
+   matrixrain[i].show();
+   matrixrain[i].fall();
+   }
+   }*/
+background(0);
+  matrixstream.createStreams();
+  for ( int i = 0; i < 160; i ++) {
+    matrixstream.createStreams();
+    matrixstream.streamsFall();
   }
 }
 
